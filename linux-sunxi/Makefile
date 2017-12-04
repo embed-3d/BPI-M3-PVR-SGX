@@ -1121,8 +1121,8 @@ _modinst_:
 	@rm -rf $(MODLIB)/kernel
 	@rm -f $(MODLIB)/source
 	@mkdir -p $(MODLIB)/kernel
-	@mkdir -p $(MODLIB)/kernel/drivers/gpu
-	@cp -f $(GPU_MODULE)/pvrsrvkm.ko $(MODLIB)/kernel/drivers/gpu/
+	#@mkdir -p $(MODLIB)/kernel/drivers/gpu
+	#@cp -f $(GPU_MODULE)/pvrsrvkm.ko $(MODLIB)/kernel/drivers/gpu/
 	@ln -s $(srctree) $(MODLIB)/source
 	@if [ ! $(objtree) -ef  $(MODLIB)/build ]; then \
 		rm -f $(MODLIB)/build ; \
