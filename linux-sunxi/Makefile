@@ -326,9 +326,6 @@ MAKEFLAGS += --include-dir=$(srctree)
 $(srctree)/scripts/Kbuild.include: ;
 include $(srctree)/scripts/Kbuild.include
 
-# bpi, GPU module
-GPU_MODULE = $(srctree)/modules/gpu/sgx544/android/kernel_mode/eurasia_km/eurasiacon/binary2_sunxi_linux_release/target
-
 # Make variables (CC, etc...)
 
 AS		= $(CROSS_COMPILE)as
@@ -1121,8 +1118,6 @@ _modinst_:
 	@rm -rf $(MODLIB)/kernel
 	@rm -f $(MODLIB)/source
 	@mkdir -p $(MODLIB)/kernel
-	#@mkdir -p $(MODLIB)/kernel/drivers/gpu
-	#@cp -f $(GPU_MODULE)/pvrsrvkm.ko $(MODLIB)/kernel/drivers/gpu/
 	@ln -s $(srctree) $(MODLIB)/source
 	@if [ ! $(objtree) -ef  $(MODLIB)/build ]; then \
 		rm -f $(MODLIB)/build ; \
