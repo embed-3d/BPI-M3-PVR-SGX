@@ -21,6 +21,7 @@ clean: kernel-clean
 
 
 kernel-clean:
+	$(MAKE) -C linux-sunxi/arch/arm/mach-sunxi/pm/standby ARCH=${T_ARCH} CROSS_COMPILE=${C_COMPILE} clean
 	$(MAKE) -C ${K_DIR} ARCH=${T_ARCH} CROSS_COMPILE=${C_COMPILE} distclean
 	rm -rf ${OUTPUT_DIR}/uImage
 	rm -rf ${OUTPUT_DIR}/usr
