@@ -92,3 +92,6 @@ lib/gen_crc32table
 usr/gen_init_cpio
 usr/initramfs_data.cpio
 firmware/ihex2fw
+drivers/video/logo/*clut224.c
+drivers/video/logo/*vga16.c
+drivers/video/logo/*mono.c
