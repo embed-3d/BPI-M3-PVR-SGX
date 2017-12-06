@@ -1,5 +1,5 @@
 .PHONY: all clean help
-.PHONY: u-boot kernel kernel-config
+.PHONY: u-boot kernel kernel-menuconfig
 .PHONY: linux pack
 
 C_COMPILE=arm-linux-gnueabihf-
@@ -12,6 +12,8 @@ T_ARCH=arm
 K_DIR=$(CURDIR)/linux-sunxi
 K_CONFIG=sun8iw6p1smp_bpi_defconfig
 #K_CONFIG=sun8iw6p1smp_defconfig
+
+K_DOT_CONFIG=$(K_DIR)/.config
 
 J=$(shell expr `grep ^processor /proc/cpuinfo  | wc -l`)
 
@@ -27,14 +29,18 @@ kernel-clean:
 	rm -rf ${OUTPUT_DIR}/usr
 	rm -rf ${OUTPUT_DIR}/lib
 
-kernel-config:
+$(OUTPUT_DIR) :
+	mkdir $@
+
+
+$(K_DOT_CONFIG): linux-sunxi
 	$(MAKE) -C ${K_DIR} ARCH=${T_ARCH} CROSS_COMPILE=${C_COMPILE} ${K_CONFIG}
 
-kernel-menuconfig:
+kernel-menuconfig: $(K_DOT_CONFIG)
 	$(MAKE) -C ${K_DIR} ARCH=${T_ARCH} CROSS_COMPILE=${C_COMPILE} menuconfig
+	cp linux-sunxi/.config linux-sunxi/arch/arm/configs/$(K_CONFIG)
 
-#kernel: kernel-config
-kernel:
+kernel: $(K_DOT_CONFIG) $(OUTPUT_DIR)
 	$(MAKE) -C ${K_DIR} ARCH=${T_ARCH} CROSS_COMPILE=${C_COMPILE} uImage modules -j$J
 	cp ${K_DIR}/arch/arm/boot/uImage ${OUTPUT_DIR}
 	$(MAKE) -C ${K_DIR} ARCH=${T_ARCH} CROSS_COMPILE=${C_COMPILE} INSTALL_MOD_PATH=${OUTPUT_DIR} modules_install firmware_install
