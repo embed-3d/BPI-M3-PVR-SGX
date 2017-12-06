@@ -33,7 +33,7 @@ $(OUTPUT_DIR) :
 	mkdir $@
 
 
-$(K_DOT_CONFIG): linux-sunxi
+$(K_DOT_CONFIG):
 	$(MAKE) -C ${K_DIR} ARCH=${T_ARCH} CROSS_COMPILE=${C_COMPILE} ${K_CONFIG}
 
 kernel-menuconfig: $(K_DOT_CONFIG)
