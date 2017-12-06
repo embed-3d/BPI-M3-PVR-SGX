@@ -36,7 +36,12 @@ modules.builtin
 *.fw.gen.S
 *.map
 *.lds
-
+*.cis
+*.csp
+*.dsp
+*.gzip
+*.S
+*.code
 #
 # Top-level generic files
 #
@@ -95,3 +100,5 @@ firmware/ihex2fw
 drivers/video/logo/*clut224.c
 drivers/video/logo/*vga16.c
 drivers/video/logo/*mono.c
+arch/arm/boot/*Image
+arch/arm/boot/compressed/vmlinux
