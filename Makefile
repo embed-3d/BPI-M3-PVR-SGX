@@ -2,7 +2,7 @@
 .PHONY: u-boot kernel kernel-menuconfig
 .PHONY: linux pack
 
-C_COMPILE=arm-linux-gnueabihf-
+C_COMPILE=arm-linux-gnueabi-
 
 CURDIR=$(shell pwd)
 
