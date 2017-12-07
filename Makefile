@@ -1,5 +1,5 @@
 .PHONY: all clean help
-.PHONY: u-boot kernel kernel-menuconfig
+.PHONY: u-boot kernel kernel-menuconfig kernel-help
 .PHONY: linux pack
 
 C_COMPILE=arm-linux-gnueabi-
@@ -26,12 +26,14 @@ kernel-clean:
 	$(MAKE) -C linux-sunxi/arch/arm/mach-sunxi/pm/standby ARCH=${T_ARCH} CROSS_COMPILE=${C_COMPILE} clean
 	$(MAKE) -C ${K_DIR} ARCH=${T_ARCH} CROSS_COMPILE=${C_COMPILE} distclean
 	rm -rf ${OUTPUT_DIR}/uImage
-	rm -rf ${OUTPUT_DIR}/usr
+	rm -rf ${OUTPUT_DIR}/include
 	rm -rf ${OUTPUT_DIR}/lib
 
 $(OUTPUT_DIR) :
 	mkdir $@
 
+kernel-help:
+	$(MAKE) -C ${K_DIR} ARCH=${T_ARCH} CROSS_COMPILE=${C_COMPILE} help
 
 $(K_DOT_CONFIG):
 	$(MAKE) -C ${K_DIR} ARCH=${T_ARCH} CROSS_COMPILE=${C_COMPILE} ${K_CONFIG}
