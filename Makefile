@@ -26,7 +26,7 @@ kernel-clean:
 	$(MAKE) -C linux-sunxi/arch/arm/mach-sunxi/pm/standby ARCH=${T_ARCH} CROSS_COMPILE=${C_COMPILE} clean
 	$(MAKE) -C ${K_DIR} ARCH=${T_ARCH} CROSS_COMPILE=${C_COMPILE} distclean
 	rm -rf ${OUTPUT_DIR}/uImage
-	rm -rf ${OUTPUT_DIR}/include
+	rm -rf ${OUTPUT_DIR}/usr
 	rm -rf ${OUTPUT_DIR}/lib
 
 $(OUTPUT_DIR) :
@@ -46,4 +46,4 @@ kernel: $(K_DOT_CONFIG) $(OUTPUT_DIR)
 	$(MAKE) -C ${K_DIR} ARCH=${T_ARCH} CROSS_COMPILE=${C_COMPILE} uImage modules -j$J
 	cp ${K_DIR}/arch/arm/boot/uImage ${OUTPUT_DIR}
 	$(MAKE) -C ${K_DIR} ARCH=${T_ARCH} CROSS_COMPILE=${C_COMPILE} INSTALL_MOD_PATH=${OUTPUT_DIR} modules_install firmware_install
-	$(MAKE) -C ${K_DIR} ARCH=${T_ARCH} CROSS_COMPILE=${C_COMPILE} INSTALL_HDR_PATH=${OUTPUT_DIR} headers_install
+	$(MAKE) -C ${K_DIR} ARCH=${T_ARCH} CROSS_COMPILE=${C_COMPILE} INSTALL_HDR_PATH=${OUTPUT_DIR}/usr headers_install
