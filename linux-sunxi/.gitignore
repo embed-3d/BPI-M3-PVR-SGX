@@ -102,3 +102,5 @@ drivers/video/logo/*vga16.c
 drivers/video/logo/*mono.c
 arch/arm/boot/*Image
 arch/arm/boot/compressed/vmlinux
+drivers/tty/vt/consolemap_deftbl.c
+drivers/tty/vt/defkeymap.c
