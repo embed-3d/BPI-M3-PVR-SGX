@@ -11,7 +11,6 @@ OUTPUT_DIR=$(CURDIR)/output
 T_ARCH=arm
 K_DIR=$(CURDIR)/linux-sunxi
 K_CONFIG=sun8iw6p1smp_bpi_defconfig
-#K_CONFIG=sun8iw6p1smp_defconfig
 
 K_DOT_CONFIG=$(K_DIR)/.config
 
