@@ -41,6 +41,7 @@ J=$(shell expr `grep ^processor /proc/cpuinfo  | wc -l`)
 all:kernel
 
 clean: kernel-clean
+	rm -rf ${OUTPUT_DIR}
 
 # ############################################################
 # Build Kernel
