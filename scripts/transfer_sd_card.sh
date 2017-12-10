@@ -28,7 +28,7 @@ echo "Transfer to BOOT partiton"
 cp $UIMAGE $T_BOOT_PATH
 cp $SCRIPTBIN $T_BOOT_PATH
 cp $FEX $T_BOOT_PATH
-cp $FEX $T_BOOT_PATH
+cp $UENV $T_BOOT_PATH
 
 echo "Clean Modules"
 sudo rm -rf $T_MODULES
