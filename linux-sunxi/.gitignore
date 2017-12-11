@@ -32,16 +32,7 @@ modules.builtin
 *.lzo
 *.patch
 *.gcno
-*.fw
-*.fw.gen.S
-*.map
-*.lds
-*.cis
-*.csp
-*.dsp
-*.gzip
-*.S
-*.code
+
 #
 # Top-level generic files
 #
@@ -53,8 +44,12 @@ modules.builtin
 /System.map
 /Module.markers
 /Module.symvers
-lib/raid6/
-/scripts
+
+#
+# Debian directory (make deb-pkg)
+#
+/debian/
+
 #
 # git files that we don't want to ignore even it they are dot-files
 #
@@ -89,18 +84,3 @@ GTAGS
 *.orig
 *~
 \#*#
-
-kernel/config_data.h
-kernel/timeconst.h
-lib/crc32table.h
-lib/gen_crc32table
-usr/gen_init_cpio
-usr/initramfs_data.cpio
-firmware/ihex2fw
-drivers/video/logo/*clut224.c
-drivers/video/logo/*vga16.c
-drivers/video/logo/*mono.c
-arch/arm/boot/*Image
-arch/arm/boot/compressed/vmlinux
-drivers/tty/vt/consolemap_deftbl.c
-drivers/tty/vt/defkeymap.c
