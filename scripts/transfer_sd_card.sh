@@ -19,6 +19,10 @@ if [[ ! -d "${T_BOOT_PATH}" || ! -d "${T_ROOT_PATH}" ]]; then
 	exit
 fi
 
+if [[ ! -f "${UIMAGE}" || ! -d "${MODULES}" ]]; then
+	echo "Please build first"
+	exit
+fi
 echo "Start Transfer"
 
 echo "Clean BOOT partition"
