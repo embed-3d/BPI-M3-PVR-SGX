@@ -29,6 +29,21 @@ cd scripts
 ## Kown Issues
 - Hardfloat issue: This processor should be normaly built with gcc-arm-linux-gnueabihf- 
 - Needs ubuntu 14.04LTS
+- if you change the config somehow, kernel breaks.
+
 ## Todo:
-- [ ] fix hardfloat issue
-- [ ] Provide cross compiler to be able compile it on any linux flavour
+- [ ] Write function similar to PDUMPMEM
+- [ ] Buildable without option:  `Add a special printk for Driver Reverse engineering`
+
+## Enable infos for Reverese engineering
+1. `make kernel-menuconfig`
+2. Go to Device Drivers --> Graphics Support --> [*] IMGTEC PowerVR SGX GPU Support --> [*] Add a special printk for Driver Reverse engineering
+3. Quit menuconfig and save config
+4. Build Kernel
+5. Replace uImage, uEnv.txt, script.bin and sys_config.fex on the boot partition 
+6. Replace the Modules
+7. Boot your device
+8. run dmesg or capture bootlog 
+
+
+ 
