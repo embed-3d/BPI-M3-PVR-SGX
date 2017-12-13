@@ -33,7 +33,6 @@ cd scripts
 
 ## Todo:
 - [ ] Write function similar to PDUMPMEM
-- [ ] Buildable without option:  `Add a special printk for Driver Reverse engineering`
 
 ## Enable infos for Reverese engineering
 1. `make kernel-menuconfig`
