@@ -33,6 +33,9 @@ K_CONFIG=sun8iw6p1smp_bpi_defconfig
 
 J=$(shell expr `grep ^processor /proc/cpuinfo  | wc -l`)
 
+ifeq ($(J),0)
+J=1
+endif
 
 # ############################################################
 # Makefile toplevel options
